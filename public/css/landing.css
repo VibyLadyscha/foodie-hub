@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #95D5B2 0%, rgba(247, 247, 232, 0) 100%);
+}
+
+
+nav {
+    background:#34835D;
+    border-radius: 0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: black;
+    font-size: 32px;
+    font-family: League Spartan;
+    font-weight: 700;
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.images{
+    width: 906px; 
+    height: 786.55px; 
+    left: 906px; 
+    top: 165px; 
+    position: absolute
+}
+
+.images .rotated {
+ 
+    
+}
+
+.text-content{
+    position:relative;
+    bottom: -150px;
+    left: 40px;
+    padding: 0 0 0 0;
+
+}
+.text-content .sub-heading {
+    color: black;
+    font-size: 75.13px;
+    font-family: League Spartan;
+    font-weight: 500;
+}
+
+.text-content .heading {
+    color: #34835D;
+    font-size: 120px;
+    font-family: League Spartan;
+    font-weight: 700;
+}
+
+.text-content .sub-heading1 {
+    color: black;
+    font-size: 75.13px;
+    font-family: League Spartan;
+    font-weight: 500;
+}
+
+.cta-button {
+    background: #34835D;
+    color: white;
+    font-size: 37.65px;
+    font-family: League Spartan;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    cursor: pointer;
+    margin-top: 30px;
+}
