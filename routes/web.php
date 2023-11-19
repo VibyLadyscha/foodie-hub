@@ -18,10 +18,12 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class,'index']); //untuk landing page
 
-Route::get('/register', [SessionController::class, 'register']); //untuk register
+Route::get('/register', [SessionController::class, 'register'])->middleware('guest'); //untuk register
 Route::post('/postregister', [SessionController::class, 'postregister']);
 
-Route::get('/login', [SessionController::class, 'login']); //untuk login
+Route::get('/login', [SessionController::class, 'login'])->name('login')->middleware('guest'); //untuk login
 Route::post('/postlogin', [SessionController::class, 'postlogin']);
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard']); //untuk dashboard
+Route::post('/logout', [SessionController::class, 'logout']); //untuk logout
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware('auth'); //untuk dashboard

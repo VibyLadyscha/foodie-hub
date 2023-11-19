@@ -27,7 +27,7 @@
               <form action="/postlogin" method="POST">
                 @csrf
               <div class="input-field">
-                <input name="username" type="text" class="input" id="username" autocomplete="off" />
+                <input name="username" type="text" class="input" id="username" autofocus required value="{{ old ('username')}}" />
                 <label for="username">Username</label>
               </div>
               <div class="input-field">
@@ -37,10 +37,25 @@
               <div class="input-field">
                 <input type="submit" class="submit" value="Log In" />
               </div>
+
+              @if(session()->has('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{session()->get('success')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              @endif
+
+              @if(session()->has('loginError'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{session()->get('loginError')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              @endif
+
               </form>
 
               <div class="signin">
-                <span>Don't have account? <a href="#">Register here</a></span>
+                <span>Don't have account? <a href="/register">Register here</a></span>
               </div>
             </div>
           </div>

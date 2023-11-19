@@ -6,6 +6,16 @@
     <title>Dashboard | FoodieHub</title>
 </head>
 <body>
+    @auth
+    <h3>hello, {{auth()->user()->username}}</h3>
+    @endauth
+
+    //logout
+    <form action="/logout" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
+
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">

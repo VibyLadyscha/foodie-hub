@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\RedirectResponse;
 
 class SessionController extends Controller
 {
@@ -57,10 +59,19 @@ class SessionController extends Controller
         ]);
 
         if (Auth::attempt($data)) {
-            return redirect('/dashboard')->with('success', 'Login Success!');
-        } else {
-            return redirect('/login')->with('error', 'Login Failed!');
-        }
+            //return redirect('/dashboard')->with('success', 'Login Success!');
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        } 
+        
+        return back()->with('loginError', 'Login Failed!');
     }
 
+    function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/login');
+    }
 }
