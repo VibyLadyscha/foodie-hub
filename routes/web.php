@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']); //untuk landing page
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/register', [SessionController::class, 'register']); //untuk register
+Route::post('/postregister', [SessionController::class, 'postregister']);
 
-Route::get('/dashboard', function () {
-    return view('landing');
-});
+Route::get('/login', [SessionController::class, 'login']); //untuk login
+Route::post('/postlogin', [SessionController::class, 'postlogin']);
 
+Route::get('/dashboard', [DashboardController::class, 'dashboard']); //untuk dashboard

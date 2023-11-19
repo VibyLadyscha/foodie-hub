@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('temporary_orders', function (Blueprint $table) {
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->integer('quantity');
+            $table->integer('price');
+            $table->string('note');
             $table->timestamps();
         });
     }

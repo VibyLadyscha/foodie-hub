@@ -16,9 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('product_id')->constrained();
             $table->foreignId('payment_id')->constrained();
-            $table->string('product_name');
-            $table->integer('total_quantity');
-            $table->integer('total_price');
+            $table->integer('order_total_quantity');
+            $table->integer('order_total_price');
             $table->timestamps();
         });
     }

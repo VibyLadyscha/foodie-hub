@@ -1,7 +1,15 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'League Spartan', sans-serif;
+
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .hero {
     position: relative;
     width: 100%;
@@ -28,6 +36,7 @@ ul {
 .navbar ul li{
     font-size: 30px;
     font-weight: 700;
+    font-style: League Spartan;
 }
 
 .nav-link {
@@ -47,31 +56,40 @@ ul {
     text-align: center;
 }
 
-.images{
+.images {
     width: 906px; 
     height: 786.55px; 
     left: 906px; 
     top: 165px; 
-    position: absolute
-}
-
-.images .rotated {
- 
-    
-}
+    position: absolute;
+  }
+  
+  .rotated1 {
+    transform: translateY(10px); /* Naik 10 piksel dari posisi aslinya */
+  }
+  
+  .rotated2 {
+    transform: translateY(150px); /* Turun 10 piksel dari posisi aslinya */
+  }
+  
+  .rotated {
+    transform: translateY(-150px);/* Tidak ada perubahan posisi */
+  }
+  
 
 .text-content{
     position:relative;
-    bottom: -150px;
-    left: 40px;
+    bottom: -70px;
+    left: 70px;
     padding: 0 0 0 0;
 
 }
 .text-content .sub-heading {
     color: black;
-    font-size: 75.13px;
+    font-size: 70.13px;
     font-family: League Spartan;
-    font-weight: 500;
+    font-weight: 800;
+    transform: translateY(-50%);
 }
 
 .text-content .heading {
@@ -83,9 +101,10 @@ ul {
 
 .text-content .sub-heading1 {
     color: black;
-    font-size: 75.13px;
+    font-size: 70.13px;
     font-family: League Spartan;
-    font-weight: 500;
+    font-weight: 800;
+    transform: translateY(40%);
 }
 
 .cta-button {
@@ -98,5 +117,248 @@ ul {
     border-radius: 10px;
     padding: 15px 30px;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 120px;
+    margin-left: 5px; /* Menambah nilai margin-left agar sejajar dengan .text-content */
+}
+.recipe-text {
+  color: black;
+  font-size: 30px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+  line-height: 1.2; /* Sesuaikan dengan nilai yang diinginkan */
+  margin-top: -170px;
+  margin-left: 68px;
+}
+
+
+.heroho {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(30, 181, 98, 0) 17%, rgba(149, 213, 178, 0.36) 49%, rgba(149, 213, 178, 0.74) 81%);/
+  }
+
+  .about-us{
+    position:relative;
+    top: 370px;
+    left: 700px;
+    padding: 0 0 0 0;
+    transform: translateX(640px);
+  }
+  .about-text {
+    color: black;
+    font-size: 75px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  .us-text {
+    color: #34835D;
+    font-size: 75px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
+  
+  .button-container {
+    display: inline-block;
+    position: relative;
+    position:relative;
+    top: 50px;
+    left: 1360px;
+    padding: 0 0 0 0;
+    transform: translateX(50px);
+    transform: translateY(0px);
+  }
+  
+  .button-background {
+    width: 279px;
+    height: 60.45px;
+    background: #F6F6E7;
+    border-radius: 55.80px;
+    border: 1.58px #40916C solid;
+    top: 350px; /* Menambah jarak dari atas */
+  }
+  
+  .view-more {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #40916C;
+    font-size: 25px;
+    font-weight: 300px;
+
+  }
+  .healthy-text {
+    color: black;
+    font-size: 30px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 450;
+    word-wrap: break-word;
+    margin-top: 400px;
+    margin-left: 1108px;
+  }
+
+  .hal2 {
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 350px; /* Menambah jarak dari atas */
+    position: absolute;
+}
+
+.daun,
+.tektek,
+.esjeruk {
+    position: absolute;
+}
+
+.daun {
+    z-index: 0;
+    left: 20px; /* Menambah jarak dari kiri */
+    top: 20px; /* Menurunkan posisi dari atas */
+}
+
+.tektek {
+    z-index: 1;
+    left: 270px; /* Menambah jarak dari kiri */
+    top: 70px; /* Menurunkan posisi dari atas */
+    transform: rotate(-15deg); /* Merotasi elemen ke kiri */
+}
+
+.esjeruk {
+  z-index: 1;
+  left: 50px; /* Menggeser ke kiri */
+  top: 300px; /* Menurunkan posisi dari atas */
+}
+.herohoho {
+  width: 100%;
+  height: 100vh; /* Menggunakan viewport height untuk memastikan ketinggian penuh */
+  position: relative;
+ background: linear-gradient(180deg, rgba(149, 213, 178, 0.74) 0%, rgba(99.42, 200.08, 145.08, 0) 42%, rgba(30, 182, 99, 0) 100%);
+}
+.title {
+  left: 50%;
+  top: 96px;
+  position: absolute;
+  transform: translateX(-50%); /* Untuk membuat posisi tengah */
+  text-align: center;
+  font-size: 78px;
+}
+
+.title span {
+  font-size: 78px; /* Menyesuaikan ukuran font agar sesuai */
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.black-text {
+  color: black;
+}
+
+.green-text {
+  color: #34835D;
+}
+
+.box {
+  width: 391px;
+  height: 491px;
+  position: absolute;
+  border-radius: 30px;
+  border: 2px #B7E4C7 solid;
+  margin-left: 20px;
+}
+
+.food-image {
+  width: 391px;
+  height: 330px;
+  position: absolute;
+  border-top-left-radius: 34.81px;
+  border-top-right-radius: 34.81px;
+  left: -20px;
+  margin-left: 20px;
+}
+
+
+.food-name {
+  left: 266px;
+  top: 639px;
+  position: absolute;
+  text-align: center;
+  color: black;
+  font-size: 36px;
+  font-family: League Spartan;
+  font-weight: 600;
+  word-wrap: break-word;
+  margin-left: 20px;
+}
+
+.opening-hours {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  background: linear-gradient(180deg, rgba(176, 231, 201, 0) 0%, rgba(30, 182, 99, 0.38) 100%);
+}
+
+.background-image {
+  left: -121px;
+  top: 198px;
+  position: absolute;
+  transform: translate(30px ,-20px);
+}
+
+.logo-image {
+  width: 485px;
+  height: 150px;
+  left: 32px;
+  top: 48px;
+  position: absolute;
+}
+
+.opening-hours-text,
+.contact-us-text {
+  position: absolute;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 600;
+  word-wrap: break-word;
+  color: black;
+  font-size: 48px;
+}
+
+.opening-hours-text {
+  left: 517px;
+  top: 234px;
+}
+
+.contact-us-text {
+  left: 1151px;
+  top: 244px;
+}
+@media only screen and (max-width: 768px) {
+  .side-image {
+    border-radius: 10px 10px 0 0;
+  }
+  img {
+    width: 0px;
+    position: absolute;
+    top: 20px;
+    left: 47%;
+  }
+  .text {
+    position: absolute;
+    top: 55%;
+    text-align: center;
+  }
+  .text h2 {
+    font-size: 21px;
+  }
+  .text p,
+  i {
+    font-size: 12p;
+  }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+
+    public function orders()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
 }
