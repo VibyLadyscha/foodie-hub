@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,6 @@ Route::post('/postlogin', [SessionController::class, 'postlogin']);
 Route::post('/logout', [SessionController::class, 'logout']); //untuk logout
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware('auth'); //untuk dashboard
+
+Route::get('order/{id}', [OrderController::class, 'order'])->middleware('auth'); //untuk order
+Route::post('order/{id}', [OrderController::class, 'orderpost'])->middleware('auth'); //untuk order

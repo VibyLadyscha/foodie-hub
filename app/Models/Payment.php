@@ -9,8 +9,8 @@ class Payment extends Model
 {
     use HasFactory;
 
-    public function orders()
+    public function temporary_orders()
     {
-        return $this->belongsTo(Order::class, 'order_id', 'id');
+        return $this->hasOne(TemporaryOrder::class, 'temporary_order_id', 'id');
     }
 }

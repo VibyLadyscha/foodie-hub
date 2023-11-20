@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public function temporary_orders()
+    public function detail_orders()
     {
-        return $this->belongsTo(Temporary_Order::class, 'product_id', 'id');
+        return $this->belongsTo(Detail_Order::class, 'detail_order_id', 'id');
     }
 }

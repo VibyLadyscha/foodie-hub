@@ -9,13 +9,24 @@ class Temporary_Order extends Model
 {
     use HasFactory;
 
-    public function products()
-    {
-        return $this->hasMany(Product::class, 'product_id', 'id');
-    }
-
+    protected $fillable = [
+        'product_id',
+        'order_id',
+        'quantity',
+        'note',
+        'price'
+    ];
+    
     public function orders()
     {
-        return $this->hasMany(Order::class, 'order_id', 'id');
+        return $this->hasOne(Order::class, 'order_id', 'id');
+    }
+    public function payments()
+    {
+        return $this->hasOne(Payment::class, 'payment_id', 'id');
+    }
+    public function detail_orders()
+    {
+        return $this->hasMany(Detail_Order::class, 'detail_order_id', 'id');
     }
 }

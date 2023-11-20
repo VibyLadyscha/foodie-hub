@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('temporary_orders', function (Blueprint $table) {
-            $table->foreignId('detail_order_id')->constrained();
-            $table->foreignId('payment_id')->constrained();
-            $table->integer('temporary_price');
+        Schema::create('detail__orders', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->constrained();
+            $table->integer('quantity');
+            $table->integer('price');
+            $table->string('note');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('temporary__orders');
+        Schema::dropIfExists('detail__orders');
     }
 };
