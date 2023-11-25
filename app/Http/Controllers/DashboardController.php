@@ -7,9 +7,11 @@ use App\Models\Product;
 
 class DashboardController extends Controller
 {
-    function dashboard()
+    public function dashboard()
     {
         $products = Product::all();
         return view('dashboard', compact('products'));   
     }
+
+    
 }

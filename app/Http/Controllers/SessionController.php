@@ -12,12 +12,12 @@ use Illuminate\Http\RedirectResponse;
 
 class SessionController extends Controller
 {
-    function register()
+    public function register()
     {
-        return view('session.register');
+        return view('session.login');
     }
 
-    function postregister(Request $request)
+    public function postregister(Request $request)
     {
         $request->validate([
             'username' => 'required|unique:users|max:255',
@@ -39,19 +39,18 @@ class SessionController extends Controller
         User::create($data);
 
         if (Auth::attempt($data)) {
-            return redirect('/dashboard')->with('success', 'Register Success!');
+            return redirect('/login')->with('success', 'Register Success!');
         } else {
             return redirect('/register')->with('error', 'Register Failed!');
         }
-        return view('landing');
     }
 
-    function login()
+    public function login()
     {
         return view('session.login');
     }
 
-    function postlogin(Request $request)
+    public function postlogin(Request $request)
     {
         $data = $request->validate([
             'username' => 'required',
@@ -67,7 +66,7 @@ class SessionController extends Controller
         return back()->with('loginError', 'Login Failed!');
     }
 
-    function logout()
+    public function logout()
     {
         Auth::logout();
         request()->session()->invalidate();

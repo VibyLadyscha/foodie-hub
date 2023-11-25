@@ -29,5 +29,10 @@ Route::post('/logout', [SessionController::class, 'logout']); //untuk logout
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware('auth'); //untuk dashboard
 
-Route::get('order/{id}', [OrderController::class, 'order'])->middleware('auth'); //untuk order
-Route::post('order/{id}', [OrderController::class, 'orderpost'])->middleware('auth'); //untuk order
+Route::get('order/{id}', [OrderController::class, 'order'])->middleware('auth'); //untuk temporary_order
+Route::post('order/{id}', [OrderController::class, 'orderpost'])->middleware('auth'); 
+
+Route::get('checkout', [OrderController::class, 'checkout'])->middleware('auth'); //untuk ke halaman checkout
+Route::delete('checkout/{id}', [OrderController::class, 'checkoutdelete'])->middleware('auth'); //untuk hapus checkout
+Route::get('editorder/{id}', [OrderController::class, 'edit'])->middleware('auth'); //untuk edit checkout
+Route::put('update/{id}', [OrderController::class, 'updatepost'])->middleware('auth'); //untuk update checkout

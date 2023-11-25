@@ -33,7 +33,7 @@
                 <h2 class="sub-heading1">Whipping Up</h2>
                 <h1 class="heading">Happiness</h1>
                 <h2 class="sub-heading">on Every Plate!</h2>
-                <button class="cta-button">Pesan Sekarang!</button>
+                <button class="cta-button"><a href="/login">Pesan Sekarang!</a></button>
             </div>
             <div class="recipe-text">
                 Keep it easy with these simple yet <br/> delicious recipes. From make-ahead lunches <br/> and midweek meals to fuss-free sides.

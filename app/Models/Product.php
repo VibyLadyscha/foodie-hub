@@ -10,6 +10,6 @@ class Product extends Model
     use HasFactory;
     public function detail_orders()
     {
-        return $this->belongsTo(Detail_Order::class, 'detail_order_id', 'id');
+        return $this->hasMany(DetailOrder::class, 'product_id', 'id');
     }
 }
