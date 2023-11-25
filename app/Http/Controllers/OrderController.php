@@ -77,8 +77,9 @@ class OrderController extends Controller
     {
         $temporary_order = TemporaryOrder::where('user_id', Auth::user()->id)->where('status', 'pending')->first();
         $detail_orders = DetailOrder::with('products')->where('temporary_order_id', $temporary_order->id)->get();
+        $payments = DB::table('payments')->get();
 
-        return view('checkout', compact('temporary_order', 'detail_orders'));
+        return view('checkout', compact('temporary_order', 'detail_orders', 'payments'));
 
     }
 

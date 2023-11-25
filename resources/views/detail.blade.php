@@ -38,27 +38,26 @@
 
           <div class="product-detail">
             <h2>Komposisi:</h2>
-            <p>Telur, Cabai, Bawang Merah, Bawang Putih, Kemiri, Gula, Garam, Daun Jeruk</p>
+            <p>{{ $product->product_composition }}</p>
           </div>
 
-          <form action="{{ url('order') }}/{{ $product->id }}" method="POST">
-            @csrf 
+          <form action="{{ url('order')}}/{{ $product->id }}" method="post">
+            @csrf
             <div class="purchase-info">
-            <h2>Jumlah:</h2>
-            <input id="number" type="text" name="quantity" placeholder="Jumlah" required>
-            <!-- <input /> -->
+              <h2>Jumlah:</h2>
+              <input id="number" type="number" name="quantity" min="1" placeholder="Jumlah" required/>
             </div>
-            
+
             <div class="notes">
-            <h2>Catatan:</h2>
-            <textarea name="note" cols="30" rows="5" placeholder="Catatan" type="text"></textarea>
-            <div class="purchase-info">
-              <button type="submit" class="btn">Tambah Keranjang<i class="fas fa-shopping-cart"></i></button>
+              <h2>Catatan:</h2>
+              <textarea name="note" cols="30" rows="5" placeholder="Catatan" type="tect"></textarea>
+              <div class="purchase-info">
+                <button type="submit" class="btn">Tambah Keranjang</a> <i class="fas fa-shopping-cart"></i></button>
+              </div>
             </div>
-          </div>
           </form>
+          </div>
         </div>
       </div>
-    </div>
   </body>
 </html>

@@ -38,7 +38,6 @@
               <form action="/logout" method="POST"> 
                 @csrf
                 <li style="margin-left: 10px"><button class="dropdown-item" type="submit">Logout</button></li>
-              <!-- <li><a class="dropdown-item" href="landing.html">Logout</a></li> -->
             </ul>
           </div>
     </ul>
