@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Order Detail | FoodieHub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="public/css/orderdetail.css" />
+    <!-- <link rel="stylesheet" href="public/css/orderdetail.css" /> -->
+    <link rel="stylesheet" href="{{ asset('css/orderdetail.css') }}">
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -16,7 +18,7 @@
 
   <body>
     <div style=" position:relative; top: 40px; left: 30px; color: black; font-size: 48px; font-family: League Spartan; font-weight: 600; word-wrap: break-word">
-      <a href="{{ url('dashboard') }}"><img src="img/Panahkiri.svg" style=" position:relative; width: 3.1%; top: -5px"></a>        
+      <a href="{{ url('dashboard') }}"><img src="{{ asset('img/Panahkiri.svg') }}" style=" position:relative; width: 2%; top: -5px"></a><a>Order Detail</a>     
   </div>
     <div class="card-wrapper">
       <div class="card">

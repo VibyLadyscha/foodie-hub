@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\TemporaryOrder;
 use App\Models\Order;
@@ -81,6 +82,40 @@ class OrderController extends Controller
 
         return view('checkout', compact('temporary_order', 'detail_orders', 'payments'));
 
+    }
+
+    public function checkoutpost(Request $request)
+    {
+        $temporary_order = TemporaryOrder::where('user_id', Auth::user()->id)->where('status', 'pending')->first();
+        $detail_orders = DetailOrder::with('products')->where('temporary_order_id', $temporary_order->id)->get();
+        $payments = DB::table('payments')->get();
+        $date = carbon::now()->format('ymd');
+
+        $request->validate([
+            'payment_id' => 'required',
+        ]);
+
+        // Simpan data ke table order
+        $order = new Order;
+        $order->user_id = Auth::user()->id;
+        $order->temporary_order_id = $temporary_order->id;
+        $order->payment_id = $request->payment_id;
+        $order->order_total_quantity = $temporary_order->temporary_quantity;
+        $order->order_total_price = $temporary_order->temporary_price;
+        $order->save();
+
+        // Update status temporary order
+        $temporary_order->status = 'checkout';
+        $temporary_order->save();
+
+        // Update stock product
+        foreach($detail_orders as $detail_order){
+            $product = Product::where('id', $detail_order->product_id)->first();
+            $product->product_stock = $product->product_stock - $detail_order->quantity;
+            $product->save();
+        }
+
+        return redirect('dashboard')->with('success', 'Pesanan Berhasil Dibuat');
     }
 
     public function checkoutdelete($id)

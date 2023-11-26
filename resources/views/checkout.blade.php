@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <title>Your Webpage Title</title>
+    <title>Check Out | FoodieHub</title>
 </head>
 <body>
     <section class="fifty" >
@@ -58,8 +58,8 @@
                       <th>No</th>
                       <th>Product</th>
                       <th>Quantity</th>
-                      <th>Price</th>
                       <th>Note</th>
+                      <th>Price</th>
                       <th>Aksi</th>
                   </tr>
               </thead>
@@ -70,43 +70,48 @@
                       <td>{{ $no++ }}</td>
                       <td>{{ $detail_order->products->product_name }}</td>
                       <td>{{ number_format($detail_order->quantity) }}</td>
-                      <td>Rp. {{ number_format($detail_order->price) }}</td>
                       <td>{{ $detail_order->note }}</td>
+                      <td>Rp. {{ number_format($detail_order->price) }}</td>
                       <td>
-                        <a href="{{ url('editorder') }}/{{ $detail_order->id }}" class="btn btn-warning btn-sm" style="font-size: 30px; font-family: League Spartan;">edit</a>
+                        <a href="{{ url('editorder') }}/{{ $detail_order->id }}" class="btn btn-warning btn-sm" style="font-size: 30px; font-family: League Spartan;">Edit</a>
                           <form action="{{ url('checkout') }}/{{ $detail_order->id }}" method="POST">
                               @csrf
                               {{ method_field('DELETE') }}
-                              <button class="btn btn-danger btn-sm" style="font-size: 30px; font-family: League Spartan;">hapus</button>
+                              <button class="btn btn-danger btn-sm" style="font-size: 30px; font-family: League Spartan;">Hapus</button>
                           </form>
                       </td>
                   </tr>
                   @endforeach
-                  <tr>
-                      <td colspan="3"><strong>Total Price</strong></td>
-                      <td colspan="3">Rp. {{ number_format($temporary_order->temporary_price) }}</strong></td>
+
+                  <form action="{{ url('checkout') }}/{{ $temporary_order->id }}" method="POST">
+                    @csrf
+                  <tr>        
+                    <div class="btn-group" style="position:relative; top: 90px; left: 150px">
+                    <td colspan="4"><strong>Metode Pembayaran</strong></td>
+                    <td><select name="payment_id" class="btn-group" style="width: 175px; height: 50px; font-size: 30px; font-family: League Spartan; font-weight: 200; word-wrap: break-word;">
+                    <option value="">-- Pilih --</option>
+                        @foreach($payments as $payment)
+                        <option value="{{ $payment->id }}">{{ $payment->payment_method }}</option>
+                        @endforeach
+                      </select>
+                      </td>
+                    </div> 
                   </tr>
-              </tbody>
-          </table>
-        </div>
-
-        <div class="btn-group" style="position:relative; top: 90px; left: 150px">
-        <label> Metode Pembayaran</label>
-        <select name="payment_id" class="btn-group" style="width: 300px; height: 50px; font-size: 30px; font-family: League Spartan; font-weight: 200; word-wrap: break-word; background-color: #167918;">
-            <option value="">-- Pilih --</option>
-            @foreach($payments as $payment)
-            <option value="{{ $payment->id }}">{{ $payment->payment_method }}</option>
-            @endforeach
-        </select>
-          </div> 
-            <div style="position: relative; left:1350px;">
-                <div style="color: black; font-size: 25px; font-family: League-spartan; font-weight: 200; word-wrap: break-word"><strong>Biaya Admin</strong>  Rp0
-                  <pre style="color: black; font-size: 25px; font-family: League-spartan; font-weight: 200; word-wrap: break-word"><strong>Total Price</strong>     Rp5000</pre>
-                </div>
-
-           </div>   
-           <button class="btn btn-secondary btn-lg" type="button" aria-expanded="false" style="background-color: #167918; border-color: #c2f3ff; float: right; margin-right: 10%; font-size: 30px;"> Check Out</button>
-         
+                  <tr>
+                      <td colspan="4"><strong>Biaya Admin</strong></td>
+                      <td>Rp. {{ number_format($payment->payment_fee) }}</td>
+                  </tr>   
+                  <tr>
+                      <td colspan="4"><strong>Total Price</strong></td>
+                      <td><strong>Rp. {{ number_format($temporary_order->temporary_price) }}</strong></td>
+                  </tr>              
+                </tbody>
+              </table>
+            </div>
+            <button class="btn btn-secondary btn-lg" type="submit" aria-expanded="false" style="background-color: #167918; border-color: #c2f3ff; float: right; margin-right: 20%; font-size: 30px;"> Check Out</button>
+            </form>
           </section>
+        </div>
+      </section>
 </body>
 </html>

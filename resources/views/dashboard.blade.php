@@ -49,11 +49,11 @@
   
     <section class="fiftyfifty" style="background: linear-gradient(180deg, rgba(82, 183, 136, 0.18) 0%, white 100%)">
         <div class="text" style="left: 145px; top: 184px">
-        <div style="width: 100%; height: 100%; color: #34835D; font-size: 70px; font-family: League Spartan; font-weight: 700; word-wrap: break-word; position:relative; top: -800px; left: 60px">Selamat Datang,</div>
+        <div style="width: 100%; height: 100%; color: #34835D; font-size: 70px; font-family: League Spartan; font-weight: 700; word-wrap: break-word; position:relative; top: -900px; left: 60px">Selamat Datang,</div>
 
         <div class="row">
         @foreach($products as $key => $product)
-        <div class="card" style="position:relative; top:-780px; left: 120px; width: 25rem; margin-bottom: 50px; margin-right: 20px;">
+        <div class="card" style="position:relative; top:-880px; left: 120px; width: 25rem; margin-bottom: 50px; margin-right: 20px;">
         <img class="card-img-top" src="{{ url('img') }}/{{ $product->product_image }}" alt="Card image cap">
         <div class="card-body">
             <h2 class="card-title" style="position:relative; left: 90px">{{ $product->product_name }}</h2>
