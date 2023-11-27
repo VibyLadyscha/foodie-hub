@@ -55,7 +55,7 @@
               </form>
 
               <div class="signin">
-                <span>Don't have account? <a href="/register">Register here</a></span>
+                <span>Don't have account? <a href="{{ url('register') }}">Register here</a></span>
               </div>
             </div>
           </div>

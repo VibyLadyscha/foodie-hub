@@ -14,7 +14,7 @@ class SessionController extends Controller
 {
     public function register()
     {
-        return view('session.login');
+        return view('session.register');
     }
 
     public function postregister(Request $request)
@@ -27,7 +27,6 @@ class SessionController extends Controller
             'phone_number' => 'required|unique:users',
         ]);
 
-        // dd($request->all());
         $data = [
             'username' => $request->username,
             'name' => $request->name,
@@ -37,12 +36,7 @@ class SessionController extends Controller
         ];
 
         User::create($data);
-
-        if (Auth::attempt($data)) {
-            return redirect('/login')->with('success', 'Register Success!');
-        } else {
-            return redirect('/register')->with('error', 'Register Failed!');
-        }
+        return redirect('/login');
     }
 
     public function login()
