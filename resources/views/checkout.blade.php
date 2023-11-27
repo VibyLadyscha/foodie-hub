@@ -43,7 +43,7 @@
 </div>
             
             <div style="position:relative; color: black; font-size: 30px; font-family: League Spartan; word-wrap: break-word;">
-            <table class="table" style="width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 50px; margin-bottom: 50px;">
+            <table class="table" style="width: 90%; margin-left: 4%; margin-right: 5%; margin-bottom: 50px;">
               <thead>
                   <tr>
                       <th>No</th>
@@ -105,7 +105,7 @@
                 </tbody>
               </table>
             </div>
-            <button class="btn btn-secondary btn-lg" type="submit" aria-expanded="false" style="background-color: #167918; border-color: #c2f3ff; float: right; margin-right: 20%; font-size: 30px;"> Check Out</button>
+            <button class="btn btn-secondary btn-lg" type="submit" aria-expanded="false" style="background-color: #167918; border-color: #c2f3ff; float: right; margin-right: 26%; font-size: 30px;"> Check Out</button>
             </form>
           </section>
         </div>
