@@ -46,6 +46,7 @@
                 @csrf
                 <li style="font-size: 20px; font-family: League Spartan; font-weight: 800;"><button type="submit" class="dropdown-item">Logout</button></li>
             </ul>
+            </form>
           </div>
     </ul>
     </div>
@@ -76,6 +77,7 @@
                     <h2>Komposisi:</h2>
                     <p>{{ $product->product_composition }}</p>
                   </div>
+
                   <form action="{{ url('order')}}/{{ $product->id }}" method="post">
                     @csrf
                     <div class="purchase-info">
@@ -90,6 +92,7 @@
                       </div>
                     </div>
                   </form>
+
                 </div>
               </div>
             </div>

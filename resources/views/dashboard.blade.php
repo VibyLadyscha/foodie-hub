@@ -50,7 +50,7 @@
   
     <section class="fiftyfifty" style="background: linear-gradient(180deg, rgba(82, 183, 136, 0.18) 0%, white 100%)">
         <div class="text" style="left: 145px; top: 184px">
-        <div style="width: 100%; height: 100%; color: #34835D; font-size: 70px; font-family: League Spartan; font-weight: 700; word-wrap: break-word; position:relative; top: -900px; left: 45px">Selamat Datang,</div>
+        <div style="width: 100%; height: 100%; color: #34835D; font-size: 70px; font-family: League Spartan; font-weight: 700; word-wrap: break-word; position:relative; top: -910px; left: 45px">Selamat Datang,</div>
 
         <div class="row">
 
