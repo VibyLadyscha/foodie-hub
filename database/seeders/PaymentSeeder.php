@@ -15,23 +15,18 @@ class PaymentSeeder extends Seeder
     {
         DB::table('payments')->insert([
             'payment_method' => 'Gopay',
-            'payment_fee' => 1000,
         ]);
         DB::table('payments')->insert([
             'payment_method' => 'Shopeepay',
-            'payment_fee' => 1000,
         ]);
         DB::table('payments')->insert([
             'payment_method' => 'Dana',
-            'payment_fee' => 1000,
         ]);
         DB::table('payments')->insert([
             'payment_method' => 'OVO',
-            'payment_fee' => 1500,
         ]);
         DB::table('payments')->insert([
             'payment_method' => 'Cash',
-            'payment_fee' => 0,
         ]);
     }
 }

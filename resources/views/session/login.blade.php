@@ -12,7 +12,6 @@
       <div class="container main">
         <div class="row">
           <div class="col-md-6 side-image">
-            <!-------------      image     ------------->
             <img src="img/F odie 1.png" alt="" />
             <div class="text">
               <h2>Welcome Back!</h2>
@@ -51,7 +50,7 @@
                 <button type="button" class="btn-close mt-2" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
               @endif
-
+              
               </form>
 
               <div class="signin">
