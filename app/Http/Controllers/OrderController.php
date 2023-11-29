@@ -28,7 +28,7 @@ class OrderController extends Controller
 
         // Validasi stock
         if($request->quantity > $product->product_stock){
-            return redirect('order/'.$id); //->with('error', 'Stock tidak cukup');
+            return redirect('order/'.$id)->with('toast_error', 'Stock tidak cukup');
         }
         
         // Cek temporary order statusnya pending atau tidak
@@ -71,7 +71,7 @@ class OrderController extends Controller
             $detail_order->save();
         }
 
-        return redirect('dashboard')->with('success', 'Pesanan Berhasil Ditambahkan');
+        return redirect('dashboard')->with('success', 'Pesanan berhasil ditambahkan!');
     }
 
     public function checkout()
@@ -93,6 +93,8 @@ class OrderController extends Controller
 
         $request->validate([
             'payment_id' => 'required',
+        ],[
+            'payment_id.required' => 'Pilih metode pembayaran terlebih dahulu!',
         ]);
 
         // Simpan data ke table order
@@ -115,7 +117,7 @@ class OrderController extends Controller
             $product->save();
         }
 
-        return redirect('dashboard')->with('success', 'Pesanan Berhasil Dibuat');
+        return redirect('dashboard')->with('success', 'Checkout berhasil! Pesanan sedang diproses');
     }
 
     public function checkoutdelete($id)
@@ -160,7 +162,7 @@ class OrderController extends Controller
 
         // Validasi stock
         if($request->quantity > $detail_order->products->product_stock){
-            return redirect('editorder/'.$id); //->with('error', 'Stock tidak cukup');
+            return redirect('editorder/'.$id)->with('toast_error', 'Stock tidak cukup');
         }
 
         if($detail_order){

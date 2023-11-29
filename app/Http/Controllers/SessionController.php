@@ -36,7 +36,7 @@ class SessionController extends Controller
         ];
 
         User::create($data);
-        return redirect('/login');
+        return redirect('/login')->with('toast_success', 'Register Success!');
     }
 
     public function login()
@@ -52,9 +52,9 @@ class SessionController extends Controller
         ]);
 
         if (Auth::attempt($data)) {
-            //return redirect('/dashboard')->with('success', 'Login Success!');
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect('/dashboard')->with('toast_success', 'Login Success!');
+            // $request->session()->regenerate();
+            // return redirect()->intended('/dashboard');
         } 
         
         return back()->with('loginError', 'Login Failed!');

@@ -100,50 +100,6 @@
         </div>
         </div>
       </div>
-
-    <!-- <div style=" position:relative; top: 40px; left: 30px; color: black; font-size: 48px; font-family: League Spartan; font-weight: 600; word-wrap: break-word">
-      <a href="{{ url('dashboard') }}"><img src="{{ asset('img/Panahkiri.svg') }}" style=" position:relative; width: 2%; top: -5px"></a><a>Order Detail</a>     
-  </div>
-    <div class="card-wrapper">
-      <div class="card">
-
-        <div class="product-imgs">
-          <div class="img-display">
-            <div class="img-showcase">
-              <img src="{{ url('img') }}/{{ $product->product_image }}" alt="food" />
-            </div>
-          </div>
-        </div>
-
-        <div class="product-content">
-          <h2 class="product-title">{{ $product->product_name }}</h2>
-
-          <div class="product-price">
-            <p class="price">Harga: <span>Rp. {{ number_format($product->product_price) }}</span></p>
-          </div>
-
-          <div class="product-detail">
-            <h2>Komposisi:</h2>
-            <p>{{ $product->product_composition }}</p>
-          </div>
-
-          <form action="{{ url('order')}}/{{ $product->id }}" method="post">
-            @csrf
-            <div class="purchase-info">
-              <h2>Jumlah:</h2>
-              <input id="number" type="number" name="quantity" min="1" placeholder="Jumlah" required/>
-            </div>
-
-            <div class="notes">
-              <h2>Catatan:</h2>
-              <textarea name="note" cols="30" rows="5" placeholder="Catatan" type="tect"></textarea>
-              <div class="purchase-info">
-                <button type="submit" class="btn">Tambah Keranjang</a> <i class="fas fa-shopping-cart"></i></button>
-              </div>
-            </div>
-          </form>
-          </div>
-        </div>
-      </div> -->
+      @include('sweetalert::alert')
   </body>
 </html>

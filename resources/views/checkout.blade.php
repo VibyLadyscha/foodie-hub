@@ -47,10 +47,11 @@
               <thead>
                   <tr>
                       <th>No</th>
-                      <th>Product</th>
-                      <th>Quantity</th>
-                      <th>Note</th>
-                      <th>Price</th>
+                      <th>Produk</th>
+                      <th>Nama Produk</th>
+                      <th>Jumlah</th>
+                      <th style="text-align: center">Note</th>
+                      <th>Harga</th>
                       <th>Aksi</th>
                   </tr>
               </thead>
@@ -59,6 +60,7 @@
                   @foreach($detail_orders as $detail_order)
                   <tr>
                       <td>{{ $no++ }}</td>
+                      <td><img src="{{ asset('img') }}/{{ $detail_order->products->product_image }}" width="100" alt="..."></td>
                       <td>{{ $detail_order->products->product_name }}</td>
                       <td>{{ number_format($detail_order->quantity) }}</td>
                       <td>{{ $detail_order->note }}</td>
@@ -73,7 +75,10 @@
                           <form action="{{ url('checkout') }}/{{ $detail_order->id }}" method="POST">
                               @csrf
                               {{ method_field('DELETE') }}
-                              <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
+                              <button class="btn btn-danger btn-sm" onclick="showWarning(event)"><i class="bi bi-trash"></i>
+
+                              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
@@ -88,9 +93,9 @@
                     @csrf
                   <tr>        
                     <div class="btn-group" style="position:relative; top: 90px; left: 150px">
-                    <td colspan="4"><strong>Metode Pembayaran</strong></td>
+                    <td colspan="5"><strong>Metode Pembayaran</strong></td>
                     <td><select name="payment_id" class="btn-group" style="width: 175px; height: 50px; font-size: 30px; font-family: League Spartan; font-weight: 200; word-wrap: break-word;">
-                    <option value="">-- Pilih --</option>
+                    <option value="" style="text-align: center">-- Pilih --</option>
                         @foreach($payments as $payment)
                         <option value="{{ $payment->id }}">{{ $payment->payment_method }}</option>
                         @endforeach
@@ -99,15 +104,35 @@
                     </div> 
                   </tr>
                   <tr>
-                      <td colspan="4"><strong>Total Price</strong></td>
+                      <td colspan="5"><strong>Total Price</strong></td>
                       <td><strong>Rp. {{ number_format($temporary_order->temporary_price) }}</strong></td>
                   </tr>              
                 </tbody>
               </table>
             </div>
-            <button class="btn btn-secondary btn-lg" type="submit" aria-expanded="false" style="background-color: #167918; border-color: #c2f3ff; float: right; margin-right: 26%; font-size: 30px;"> Check Out</button>
+            <button class="btn btn-secondary btn-lg" type="submit" aria-expanded="false" style="background-color: #167918; border-color: #c2f3ff; float: right; margin-right: 15%; font-size: 30px;"> Check Out</button>
             </form>
           </section>
         </div>
+
+      @include('sweetalert::alert')
+      <script>
+        function showWarning(event) {
+          event.preventDefault(); // Untuk membatalkan fungsi default javascriptnya
+          Swal.fire({
+            icon: 'warning',
+            title: 'Apakah anda yakin ingin menghapus pesanan?',
+            showCancelButton: true,
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Tidak'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              event.target.closest('form').submit(); // Untuk submit form jika user memilih ya
+            } else {
+              window.location.href = "{{ url('checkout') }}"; // Untuk redirect halaman jika user memilih tidak
+            }
+          });
+        }
+      </script>
 </body>
 </html>
