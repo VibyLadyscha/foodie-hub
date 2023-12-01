@@ -18,38 +18,38 @@
         <?php
         $notif = App\Models\TemporaryOrder::where('user_id', Auth::user()->id)->where('status', 'pending')->value('temporary_quantity');
         ?>
-      <ul>
-        <li>
-          <a href="{{ url('checkout') }}" class="nav-link" style="position:relative; top: 10px; left:-90px;">
-            <button class="btn btn-outline-light">
-              <i></i>
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $notif }}</span>
+        <ul>
+          <li>
+            <a href="{{ url('checkout') }}" class="nav-link" style="position:relative; top: 10px; left:-90px;">
+              <button class="btn btn-outline-light">
+                <i></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $notif }}</span>
+              </button>
+            </a>
+          </li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 120px; height: 50px; font-size: 22px; font-family: League Spartan;">
+              @auth
+              {{auth()->user()->username}}
+              @endauth
             </button>
-          </a>
-        </li>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 120px; height: 50px; font-size: 22px; font-family: League Spartan;">
-            @auth
-            {{auth()->user()->username}}
-            @endauth
-          </button>
-          <ul class="dropdown-menu">
-            <form action="/logout" method="POST"> 
-              @csrf
-              <li style="font-size: 20px; font-family: League Spartan; font-weight: 800;">
-                <button type="submit" class="dropdown-item">Logout</button>
-              </li>
-            </form>
-          </ul>
-        </div>
-      </ul>
+            <ul class="dropdown-menu">
+              <form action="/logout" method="POST"> 
+                @csrf
+                <li style="font-size: 20px; font-family: League Spartan; font-weight: 800;">
+                  <button type="submit" class="dropdown-item">Logout</button>
+                </li>
+              </form>
+            </ul>
+          </div>
+        </ul>
+      </nav>
+      <div class="text" style="left: 145px; top: 184px">
+      </div>
     </div>
-  </nav>
-  <div class="text" style="left: 145px; top: 184px">
-  </div>
   </section>
   
   <section class="fiftyfifty" id="productSection" style="background: linear-gradient(180deg, rgba(82, 183, 136, 0.18) 0%, white 100%)">
