@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'League Spartan', sans-serif;
+    overflow-x: hidden;
 
 }
 * {
@@ -148,7 +149,7 @@ ul {
   .about-us{
     position:relative;
     top: 370px;
-    left: 700px;
+    left: 540px;
     padding: 0 0 0 0;
     transform: translateX(640px);
   }
@@ -206,7 +207,9 @@ ul {
     font-weight: 450;
     word-wrap: break-word;
     margin-top: 400px;
-    margin-left: 1108px;
+    margin-left: 880px;
+    padding-right: 80px;
+    text-align: justify;
   }
 
   .hal2 {
@@ -225,21 +228,21 @@ ul {
 
 .daun {
     z-index: 0;
-    left: 20px; /* Menambah jarak dari kiri */
+    left: 5%; /* Menambah jarak dari kiri */
     top: 20px; /* Menurunkan posisi dari atas */
 }
 
 .tektek {
     z-index: 1;
-    left: 270px; /* Menambah jarak dari kiri */
-    top: 70px; /* Menurunkan posisi dari atas */
+    left: 21%; /* Menambah jarak dari kiri */
+    top: 150px; /* Menurunkan posisi dari atas */
     transform: rotate(-15deg); /* Merotasi elemen ke kiri */
 }
 
 .esjeruk {
   z-index: 1;
-  left: 50px; /* Menggeser ke kiri */
-  top: 300px; /* Menurunkan posisi dari atas */
+  left: 9%; /* Menggeser ke kiri */
+  top: 200px; /* Menurunkan posisi dari atas */
 }
 .herohoho {
   width: 100%;

@@ -43,11 +43,7 @@
             <span class="us-text">Us</span>
         </div>
         <div class="healthy-text">
-            Keep healthy food readily available. When you get hungry.<br/>
-            You're likely to eat the first thing you see on the counter.<br/>
-            Keep healthy food readily available. When you get hungry.<br/>
-            You're more likely to eat the first thing you see on the counter.<br/>
-            Keep healthy food readily available.
+        Selamat datang di Foodie.hub! Solusi inovatif kami mengatasi antrean panjang dan keterbatasan memilih menu di warung makan. Pesan makanan dengan mudah, lihat menu, bayar online, dan ambil pesanan tanpa antri. Transformasi positif dalam operasional warteg di era digital. Bergabunglah untuk pengalaman pesan makanan yang lebih efisien dan menyenangkan!
         </div>
         <div class="button-container"></div>
         <div class="hal2">
