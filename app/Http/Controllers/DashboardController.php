@@ -12,6 +12,5 @@ class DashboardController extends Controller
         $products = Product::all();
         return view('dashboard', compact('products'));   
     }
-
     
 }
