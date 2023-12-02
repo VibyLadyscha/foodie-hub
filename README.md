@@ -5,3 +5,9 @@ Foodie.hub merupakan aplikasi web sederhana yang dibuat untuk mempermudah pemesa
 - Viby Ladyscha Yalasena Winarno (G6401221025) as backend developer
 - Dicky Anugrah (G6401221027) as frontend developer
 - Syira Rijannati Rosadi (G6401221094) as frontend developer
+## Features
+- Register
+- Log in
+- Log out
+- Order detail
+- Check out
