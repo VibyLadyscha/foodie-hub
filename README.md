@@ -8,9 +8,7 @@ Foodie.hub merupakan aplikasi web sederhana yang dibuat untuk mempermudah pemesa
 - Syira Rijannati Rosadi (G6401221094) as frontend developer
 
 ## ERD
-<p align="center">
-  <img width="730" alt="Screenshot 2023-12-02 093014" src="https://github.com/VibyLadyscha/foodie-hub/assets/118581262/d43c801e-379c-4888-8ceb-1433147b9795">
-</p>
+![ERD FIXX](https://github.com/VibyLadyscha/foodie-hub/assets/118581262/a3e24b93-cc14-41c1-824b-367bfe43a683)
 
 ## Features
 ### 1. Register
